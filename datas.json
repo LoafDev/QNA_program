@@ -1,0 +1,15 @@
+{
+    "question": {
+        "q1: Ask a question, this is the question title!":["And", "This is", "Your frend's choice!"],
+        "q2: Choose an answer":["if it's wrong then no point for ya", "if it's not then a point!", "get a good mark!"],
+        "q3: Type your answer at the answer section":["please", "don't change either", "of question or answer", "This answer must match for a choice"],
+        "q4: the number of quesion and answer must be the same": ["else the program will throw an error!", "so be carefull and type answer carefully!", "good luck!"]
+    },
+    
+    "answer": [
+        "And",
+        "if it's not then a point!",
+        "don't change either",
+        "else the program will throw an error!"
+    ]
+}
