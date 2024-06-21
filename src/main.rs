@@ -17,7 +17,6 @@ fn read_json() -> Result<QNA, Box<dyn Error>> {
     Ok(qna)
 }
 
-// will unwrap or else function
 fn pause() {
     let mut stdin = stdin();
     let mut stdout = stdout();
@@ -35,7 +34,7 @@ fn main() {
 
     //can't compere questions and answers if they don't have the same number.
     if qnums != anums {
-        println!("\x1b[1m\x1b[33mError\x1b[0m: Hey, your answers are different from your questions! Questions: {}, answers: {}", qnums, anums);
+        println!("\x1b[1m\x1b[33mError\x1b[0m: Hey, your answers are different from your questions! Questions: \x1b[1m\x1b[33m{}\x1b[0m, answers: \x1b[1m\x1b[33m{}\x1b[0m", qnums, anums);
         exit(1)
     }
 
@@ -55,16 +54,17 @@ fn main() {
         .with_render_config(RenderConfig::default().with_highlighted_option_prefix(styled_option).with_selected_option(Some(style_sheet)).with_scroll_up_prefix(Styled::new("^").with_style_sheet(style_sheet)).with_scroll_down_prefix(Styled::new("v").with_style_sheet(style_sheet)))
         .prompt();
 
-        print!("\n");
-
         match ans {
             Ok(choice) => {
                 if choice == a {
                     points += 1.;
+                    println!("\x1b[1m\x1b[33mRight!\x1b[0m\n")
+                } else {
+                    println!("\x1b[1m\x1b[31mWrong!\x1b[0m\n")
                 }
             },
             Err(e) => {
-                println!("There was an \x1b[1m\x1b[33merror\x1b[0m: {e}");
+                println!("There was an \x1b[1m\x1b[33merror\x1b[0m: \x1b[1m\x1b[31m{e}\x1b[0m\n");
                 exit(1);
             },
         }
